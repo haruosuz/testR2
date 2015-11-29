@@ -12,8 +12,10 @@ plot(cse$start, cse$end)
 val <- "start"; grp <- "chrom"; boxplot(cse[,val] ~ cse[,grp], xlab=grp, ylab=val)
 dev.off()
 
-# Exporting Data Summary
-summary(cse$start)
+# Data Summary
+summary(cse)
+
+# Exporting Data
 write.csv(sapply(cse[,-1], summary), file="analysis/summary.csv")
 
 
