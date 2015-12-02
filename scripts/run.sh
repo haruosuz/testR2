@@ -7,7 +7,7 @@ mkdir data analysis
 
 # Downloading Data
 
-wget -P data/ \
+wget -P data/ --no-check-certificate \
  https://raw.githubusercontent.com/vsbuffalo/bds-files/master/chapter-07-unix-data-tools/example.bed
 
 # Running R scripts
