@@ -1,5 +1,8 @@
 sessionInfo()
 
+# Set Working Directory
+#setwd("~/projects/testR2/")
+
 # Loading Data into R
 cse <- read.delim("data/example.bed", header=FALSE, col.names=c("chrom", "start", "end"))
 
