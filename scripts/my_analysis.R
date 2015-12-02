@@ -1,4 +1,3 @@
-sessionInfo()
 
 # Set Working Directory
 #setwd("~/projects/testR2/")
@@ -20,3 +19,7 @@ summary(cse)
 
 # Exporting Data
 write.csv(sapply(cse[,-1], summary), file="analysis/summary.csv")
+
+# 
+sessionInfo()
+
