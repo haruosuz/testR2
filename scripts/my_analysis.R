@@ -15,11 +15,11 @@ summary(d)
 
 # Exploring Data Visually
 pdf(file="analysis/plot.pdf")
-par(mfrow=c(2,2))
+par(mfcol=c(2,2))
 hist(c(d$start, d$end))
 plot(d$start, d$end)
 boxplot(d$start ~ d$chrom, ylab = "start")
-barplot(as.matrix(d[,2:3]))
+barplot(table(d$chrom))
 dev.off()
 
 # Exporting Data
