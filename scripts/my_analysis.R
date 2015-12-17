@@ -3,23 +3,27 @@
 #setwd("~/projects/testR2/")
 
 # Loading Data into R
-cse <- read.delim("data/example.bed", header=FALSE, col.names=c("chrom", "start", "end"))
+d <- read.delim("data/example.bed", header=FALSE, col.names=c("chrom", "start", "end"))
+
+cat("# Exploring and Transforming Dataframes\n")
+dim(d)
+head(d, n=3)
+colnames(d)
+
+cat("# Data Summary\n")
+summary(d)
 
 # Exploring Data Visually
 pdf(file="analysis/plot.pdf")
 par(mfrow=c(2,2))
-barplot(as.matrix(cse[,2:3]))
-hist(c(cse$start, cse$end))
-plot(cse$start, cse$end)
-val <- "start"; grp <- "chrom"; boxplot(cse[,val] ~ cse[,grp], xlab=grp, ylab=val)
+hist(c(d$start, d$end))
+plot(d$start, d$end)
+boxplot(d$start ~ d$chrom, ylab = "start")
+barplot(as.matrix(d[,2:3]))
 dev.off()
 
-# Data Summary
-summary(cse)
-
 # Exporting Data
-write.csv(sapply(cse[,-1], summary), file="analysis/summary.csv")
+write.csv(d[order(d$chrom),], file="analysis/table.csv")
 
 # Print R version and packages
 sessionInfo()
-
